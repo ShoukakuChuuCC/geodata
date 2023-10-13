@@ -2,7 +2,7 @@ name: Build rules dat files
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 22 * * *" # 6:30 AM UTC+8
+    - cron: "0 22 * * *" # 8:00 AM UTC+8
   push:
     branches:
       - master
@@ -15,6 +15,7 @@ jobs:
       - name: Set variables
         run: |
           echo "GOAMD64=v3" >> $GITHUB_ENV
+          echo "Anti_AD=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt" >> $GITHUB_ENV
           echo "BUILDTIME=$(TZ=Asia/Shanghai date +'%Y-%m-%d %H:%M')" >> $GITHUB_ENV
           echo "CHINA_DOMAINS_URL=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Domain.txt" >> $GITHUB_ENV
           echo "GOOGLE_DOMAINS_URL=https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf" >> $GITHUB_ENV
@@ -55,7 +56,12 @@ jobs:
         with:
           go-version-file: ./custom/go.mod
           cache-dependency-path: ./custom/go.sum
-
+          
+      - name: Generate Anti_AD
+        run: |
+          mkdir -p ./community/data
+          curl -sSL ${Anti_AD} | grep -v '#' | sed '/^\s*$/d' > ./community/data/anti-ad
+          
       - name: Get geoip.dat relative files
         run: |
           wget https://github.com/Loyalsoldier/geoip/raw/release/geoip.dat
@@ -160,50 +166,12 @@ jobs:
         run: |
           cd custom || exit 1
           # echo sentry.io >>  ../community/data/openai
+          curl -sSL ${Anti_AD} | grep -v '#' | sed '/^\s*$/d' >> ../community/data/anti-ad
           echo ipleak.net >> ../community/data/geolocation-\!cn && echo browserleaks.org >> ../community/data/geolocation-\!cn
           go run ./ --datapath=../community/data
 
-      - name: Build geosite-lite.dat file
-        env:
-          NO_SKIP: true
-          SED: grep DOMAIN | grep -v "#" | sed 's/  - DOMAIN,/full:/g' | sed 's/  - DOMAIN-SUFFIX,//g' | sed 's/  - DOMAIN-KEYWORD,/keyword:/g'
-        run: |
-          cd community || exit 1
-          mkdir -p data-lite
-          curl -sSL https://raw.githubusercontent.com/xishang0128/rules/main/biliintl.list > ./data-lite/biliintl
-          curl -sSL https://github.com/v2fly/domain-list-community/raw/master/data/ehentai > ./data-lite/ehentai
-          curl -sSL https://github.com/v2fly/domain-list-community/raw/master/data/private > ./data-lite/private
-
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/AbemaTV/AbemaTV.yaml | ${{ env.SED }} > ./data-lite/abema
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Apple/Apple_Classical.yaml | ${{ env.SED }} > ./data-lite/apple
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/AppleMusic/AppleMusic.yaml | ${{ env.SED }} > ./data-lite/applemusic
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BiliBili/BiliBili.yaml | ${{ env.SED }} > ./data-lite/bilibili
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Bahamut/Bahamut.yaml | ${{ env.SED }} > ./data-lite/bahamut
-
-          curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China_Domain.yaml | grep - | sed "s/  - '+.//g" | sed "s/  - '/full:/g" | grep -v "#" | grep -v "acg.rip" | sed "s/'//g" > ./data-lite/cn
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Cloudflare/Cloudflare.yaml | ${{ env.SED }} > ./data-lite/cloudflare
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Google/Google.yaml | ${{ env.SED }} > ./data-lite/google
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/GitHub/GitHub.yaml | ${{ env.SED }} > ./data-lite/github
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Microsoft/Microsoft.yaml | ${{ env.SED }} > ./data-lite/microsoft
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Netflix/Netflix.yaml | ${{ env.SED }} > ./data-lite/netflix
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/OpenAI/OpenAI.yaml | ${{ env.SED }} > ./data-lite/openai
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/OneDrive/OneDrive.yaml | ${{ env.SED }} > ./data-lite/onedrive
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Pixiv/Pixiv.yaml | ${{ env.SED }} > ./data-lite/pixiv
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/ProxyLite/ProxyLite.yaml | ${{ env.SED }} > ./data-lite/proxy
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Spotify/Spotify.yaml | ${{ env.SED }} > ./data-lite/spotify
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Telegram/Telegram.yaml | ${{ env.SED }} > ./data-lite/telegram
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Twitter/Twitter.yaml | ${{ env.SED }} > ./data-lite/twitter
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/TikTok/TikTok.yaml | ${{ env.SED }} > ./data-lite/tiktok
-          curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/YouTube/YouTube.yaml | ${{ env.SED }} > ./data-lite/youtube
-
-          echo include:google >> ./data-lite/proxy && echo include:github >> ./data-lite/proxy && echo include:netflix >> ./data-lite/proxy
-          echo ipleak.net >> ./data-lite/proxy && echo browserleaks.org >> ./data-lite/proxy
-          echo "full:o33249.ingest.sentry.io" >>  ./data-lite/openai
-          go run ./ --datapath=./data-lite --outputname geosite-lite.dat
-
       - name: Get geoip.dat relative files
         run: |
-          wget -O geoip-lite.dat https://github.com/xishang0128/geoip/raw/release/geoip.dat
           wget https://github.com/Loyalsoldier/geoip/raw/release/geoip.dat
 
       - name: Build db and metadb file
@@ -212,41 +180,26 @@ jobs:
         run: |
           go install -trimpath -ldflags="-s -w -buildid=" github.com/metacubex/geo/cmd/geo@master
           geo convert site -i v2ray -o sing -f geosite.db ./custom/publish/geosite.dat
-          geo convert site -i v2ray -o sing -f geosite-lite.db ./community/geosite-lite.dat
           geo convert ip -i v2ray -o sing -f geoip.db ./geoip.dat
           geo convert ip -i v2ray -o meta -f geoip.metadb ./geoip.dat
-          geo convert ip -i v2ray -o sing -f geoip-lite.db ./geoip-lite.dat
-          geo convert ip -i v2ray -o meta -f geoip-lite.metadb ./geoip-lite.dat
 
       - name: Move and zip files
         run: |
           mkdir -p ./publish/
-          wget https://raw.githubusercontent.com/xishang0128/geoip/release/Country.mmdb -O ./publish/country-lite.mmdb
-          wget https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb -O ./publish/country.mmdb
-          install -Dp ./geoip-lite.dat ./publish/
           install -Dp ./geoip.dat ./publish/
           install -Dp ./custom/publish/geosite.dat ./publish/
-          install -Dp ./community/geosite-lite.dat ./publish/
           install -Dp ./geosite.db ./publish/
-          install -Dp ./geosite-lite.db ./publish/
           install -Dp ./geoip.db ./publish/
-          install -Dp ./geoip-lite.db ./publish/
           install -Dp ./geoip.metadb ./publish/
-          install -Dp ./geoip-lite.metadb ./publish/
           curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Domain.yaml | sed '/^\s*#/d' > ./publish/cn_domain.yaml
           curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Domain.yaml | sed '/^\s*#/d' > ./publish/proxy.yaml
           curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml | grep DOMAIN | grep -v "#" | sed 's/  - DOMAIN,/full:/g' | sed 's/  - DOMAIN-SUFFIX,//g' | sed 's/  - DOMAIN-KEYWORD,/keyword:/g' > ./publish/cn.txt
           cd ./publish || exit 1
-          sha256sum geoip-lite.dat > geoip-lite.dat.sha256sum
           sha256sum geoip.dat > geoip.dat.sha256sum
           sha256sum geosite.dat > geosite.dat.sha256sum
-          sha256sum geosite-lite.dat > geosite-lite.dat.sha256sum
           sha256sum geosite.db > geosite.db.sha256sum
-          sha256sum geosite-lite.db > geosite-lite.db.sha256sum
           sha256sum geoip.db > geoip.db.sha256sum
-          sha256sum geoip-lite.db > geoip-lite.db.sha256sum
           sha256sum geoip.metadb > geoip.metadb.sha256sum
-          sha256sum geoip-lite.metadb > geoip-lite.metadb.sha256sum
 
       - name: Delete current release assets
         uses: andreaswilli/delete-release-assets-action@v3.0.0
