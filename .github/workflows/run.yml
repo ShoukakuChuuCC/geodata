@@ -167,6 +167,7 @@ jobs:
 
       - name: Get geoip.dat relative files
         run: |
+          wget -O geoip-lite.dat https://github.com/xishang0128/geoip/raw/release/geoip.dat
           wget https://github.com/Loyalsoldier/geoip/raw/release/geoip.dat
 
       - name: Build db and metadb file
@@ -177,25 +178,33 @@ jobs:
           geo convert site -i v2ray -o sing -f geosite.db ./custom/publish/geosite.dat
           geo convert ip -i v2ray -o sing -f geoip.db ./geoip.dat
           geo convert ip -i v2ray -o meta -f geoip.metadb ./geoip.dat
+          geo convert ip -i v2ray -o sing -f geoip-lite.db ./geoip-lite.dat
+          geo convert ip -i v2ray -o meta -f geoip-lite.metadb ./geoip-lite.dat
 
       - name: Move and zip files
         run: |
           mkdir -p ./publish/
           install -Dp ./geoip.dat ./publish/
           install -Dp ./custom/publish/geosite.dat ./publish/
+          install -Dp ./geoip-lite.dat ./publish/
           install -Dp ./geosite.db ./publish/
           install -Dp ./geoip.db ./publish/
+          install -Dp ./geoip-lite.db ./publish/
           install -Dp ./geoip.metadb ./publish/
+          install -Dp ./geoip-lite.metadb ./publish/
           curl -sSL ${TrackersList1}  | grep -i '\.[A-Z]' | sed "s/^.*\/\///g" | sed "s/:.*\/.*//g" | sed "/^\s*$/d" >> ./bt.txt
           curl -sSL ${TrackersList2}  | grep -i '\.[A-Z]' | sed "s/^.*\/\///g" | sed "s/:.*\/.*//g" | sed "/^\s*$/d" >> ./bt.txt
           sort ./bt.txt | uniq > ./publish/bt-tracker.txt
           curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml | grep DOMAIN | grep -v "#" | sed 's/  - DOMAIN,/full:/g' | sed 's/  - DOMAIN-SUFFIX,//g' | sed 's/  - DOMAIN-KEYWORD,/keyword:/g' > ./publish/cn.txt
           cd ./publish || exit 1
+          sha256sum geoip-lite.dat > geoip-lite.dat.sha256sum
           sha256sum geoip.dat > geoip.dat.sha256sum
           sha256sum geosite.dat > geosite.dat.sha256sum
           sha256sum geosite.db > geosite.db.sha256sum
           sha256sum geoip.db > geoip.db.sha256sum
+          sha256sum geoip-lite.db > geoip-lite.db.sha256sum
           sha256sum geoip.metadb > geoip.metadb.sha256sum
+          sha256sum geoip-lite.metadb > geoip-lite.metadb.sha256sum
 
       - name: Delete current release assets
         uses: andreaswilli/delete-release-assets-action@v3.0.0
