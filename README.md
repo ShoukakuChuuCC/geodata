@@ -1,5 +1,20 @@
 ## **下载地址**：
 
+- **geoip-lite.dat**
+  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/geoip-lite.dat)
+  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip-lite.dat)
+  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip-lite.dat)
+ 
+- **geoip-lite.db**
+  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/geoip-lite.db)
+  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip-lite.db)
+  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip-lite.db)
+
+- **geoip-lite.metadb**
+  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/geoip-lite.metadb)
+  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip-lite.metadb)
+  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip-lite.metadb)
+
 - **geoip.dat**
   - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/geoip.dat)
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip.dat)
@@ -14,7 +29,7 @@
   - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/geoip.metadb)
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip.metadb)
   - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geoip.metadb)
-  
+
 - **geosite.dat**
   - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/geosite.dat)
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geosite.dat)
