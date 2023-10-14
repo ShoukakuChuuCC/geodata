@@ -35,7 +35,21 @@
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/bt-tracker.txt)
   - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/bt-tracker.txt)
 
-## **geoip.dat,geoip.db内容**
+## **geoip-lite.dat,geoip-lite.db,geoip-lite.metadb 内容** 
+
+国家仅包含CN/JP,精简体积,替换一些类别
+- 新增类别（方便有特殊需求的用户使用）：
+  - `geoip:cloudflare`
+  - `geoip:cloudfront`
+  - `geoip:facebook`
+  - `geoip:bilibili`
+  - `geoip:google`
+  - `geoip:netflix`
+  - `geoip:telegram`
+  - `geoip:twitter`
+  - `geoip:apple`
+
+## **geoip.dat,geoip.db,geoip.metadb 内容**
 
 同 [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
 - 新增类别（方便有特殊需求的用户使用）：
@@ -48,7 +62,7 @@
   - `geoip:telegram`
   - `geoip:twitter`
 
-## **geosite.dat,geosite.db内容**
+## **geosite.dat,geosite.db,geosite.metadb 内容**
 
 用法同 [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)  
   - `geosite:category-ads-all` 仅使用域名作为广告拦截用途作用有限，因此不作额外域名添加
@@ -60,14 +74,6 @@
   - `geosite:tracker` 来源 [TrackersList](https://trackerslist.com/#/zh)以及[blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/PrivateTracker)
   - `geosite:anti-ad` 来源 [anti-AD](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt)
   - `geosite:bt-tracker` 来源 [XIU2/TrackersListCollectiont](https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt)和[ngosang/trackerslist](https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt) (已去重)
-
-
-## **geosite-lite.dat,geosite-lite.db 内容**
-
-仅包含常用集合,cn为精简集合,可能不全
-集合内容均来自 https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash
-
-集合包含 `abema / apple / applemusic / bilibili / biliintl / bahamut / cn / ehentai / google / github / microsoft / netflix / openai / onedrive / pixiv / proxy / spotify / telegram / twitter / tiktok / youtube`
 
 ## *cn.txt 内容*
 
