@@ -59,7 +59,7 @@
   - `geosite:biliintl` 来源 [biliintl](https://raw.githubusercontent.com/xishang0128/rules/main/biliintl.list)
   - `geosite:tracker` 来源 [TrackersList](https://trackerslist.com/#/zh)以及[blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/PrivateTracker)
   - `geosite:anti-ad` 来源 [anti-AD](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt)
-  - `geosite:bt-tracker` 来源 [XIU2/TrackersListCollectiont](https://github.com/XIU2/TrackersListCollection)和[ngosang/trackerslist](https://github.com/ngosang/trackerslist)
+  - `geosite:bt-tracker` 来源 [XIU2/TrackersListCollectiont](https://github.com/XIU2/TrackersListCollection)和[ngosang/trackerslist](https://github.com/ngosang/trackerslist) (已去重)
 
 
 ## **geosite-lite.dat,geosite-lite.db 内容**
@@ -72,15 +72,16 @@
 ## *cn.txt 内容*
 
 主要用于mosdns v5分流
-内容来自 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
+内容来自:  
+[blackmatrix7/ios_rule_script](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml)
 
 
 ## *bt-tracker.txt 内容*
 
 主要用于mosdns v5分流
 内容来自:  
-https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt
-https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt
+[XIU2/TrackersListCollectiont](https://github.com/XIU2/TrackersListCollection)  
+[ngosang/trackerslist](https://github.com/ngosang/trackerslist)
 
 ## 致谢
 
