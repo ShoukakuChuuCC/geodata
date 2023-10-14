@@ -72,8 +72,7 @@
 ## *cn.txt 内容*
 
 主要用于mosdns v5分流
-内容来自:
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
+内容来自 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml
 
 
 ## *bt-tracker.txt 内容*
