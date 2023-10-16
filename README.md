@@ -39,11 +39,16 @@
   - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/geosite.db)
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geosite.db)
   - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/geosite.db)
+
+- **cn_ip.txt**
+  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/cn_ip.txt)
+  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn_ip.txt)
+  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn_ip.txt)
   
-- **cn.txt**
-  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/cn.txt)
-  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn.txt)
-  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn.txt)
+- **cn_domain.txt**
+  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/cn_domain.txt)
+  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn_domain.txt)
+  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn_domain.txt)
 
 - **bt-tracker.txt**
   - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/bt-tracker.txt)
