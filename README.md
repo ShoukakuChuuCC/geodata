@@ -90,7 +90,13 @@
   - `geosite:anti-ad` 来源 [anti-AD](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt)
   - `geosite:bt-tracker` 来源 [XIU2/TrackersListCollectiont](https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt)和[ngosang/trackerslist](https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt) (已去重)
 
-## *cn.txt 内容*
+## *cn_ip.txt 内容*
+
+主要用于mosdns v5分流
+内容来自:  
+[blackmatrix7/ios_rule_script](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_ip.yaml)
+
+## *cn_domain.txt 内容*
 
 主要用于mosdns v5分流
 内容来自:  
@@ -100,7 +106,7 @@
 ## *bt-tracker.txt 内容*
 
 主要用于mosdns v5分流
-内容来自:  
+内容来自: 
 [XIU2/TrackersListCollectiont](https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt)  
 [ngosang/trackerslist](https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt)
 
