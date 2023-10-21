@@ -111,7 +111,7 @@
 ## *bt-tracker.txt 内容*
 
 主要用于mosdns v5分流
-内容来自: 
+内容来自:  
 [XIU2/TrackersListCollectiont](https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt)  
 [ngosang/trackerslist](https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt)
 
