@@ -7,10 +7,12 @@ on:
 jobs:
   del_runs:
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
+        uses: Mattraks/delete-workflow-runs@v2
         with:
-          token: ${{ secrets.AUTH_PAT }}
-          repository: ${{ github.repository }}
+          token: ${{ github.token }}
+          repository: ShoukakuChuuCC/geodata
           retain_days: 7
