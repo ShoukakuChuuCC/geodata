@@ -1,4 +1,8 @@
 ipw.cn
 gamepass.com
 xboxservices.com
-xboxlive.cn
+steamcontent.com
+steampipe.akamaized.net
+ssl-lvlt.cdn.ea.com
+origin-a.akamaihd.net
+epicgames-download1.akamaized.net
