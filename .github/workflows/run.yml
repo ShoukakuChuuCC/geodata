@@ -86,13 +86,13 @@ jobs:
 
       - name: Add proxy, direct and reject domains from "hidden" branch to appropriate temp files
         run: |
-          cat ./proxy.txt >> temp-proxy.txt
-          cat ./direct.txt >> temp-direct.txt
+          cat proxy.txt >> temp-proxy.txt
+          cat direct.txt >> temp-direct.txt
 
       - name: Sort and generate redundant lists
         run: |
-          cat temp-proxy.txt | sort --ignore-case -u > ./proxy-list-with-redundant
-          cat temp-direct.txt | sort --ignore-case -u > ./direct-list-with-redundant
+          cat temp-proxy.txt | sort --ignore-case -u > proxy-list-with-redundant
+          cat temp-direct.txt | sort --ignore-case -u > direct-list-with-redundant
 
       - name: Remove redundant domains
         run: |
@@ -108,8 +108,10 @@ jobs:
 
       - name: Remove domains from "need-to-remove" lists in "hidden" branch
         run: |
-          diff ./direct-need-to-remove.txt ./direct-list-without-redundant | awk '/^>/{print $2}' > temp-cn.txt
-          diff ./proxy-need-to-remove.txt ./proxy-list-without-redundant | awk '/^>/{print $2}' > temp-geolocation-\!cn.txt
+          sort ./direct-need-to-remove.txt > ./direct-need-to-remove-sort.txt
+          sort ./proxy-need-to-remove.txt > ./proxy-need-to-remove-sort.txt
+          diff ./direct-need-to-remove-sort.txt ./direct-list-without-redundant | awk '/^>/{print $2}' > temp-cn.txt
+          diff ./proxy-need-to-remove-sort.txt ./proxy-list-without-redundant | awk '/^>/{print $2}' > temp-geolocation-\!cn.txt
 
       - name: Remove domains end with ".cn" in "temp-geolocation-!cn.txt" and write lists to data directory
         run: |
