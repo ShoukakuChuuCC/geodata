@@ -33,3 +33,7 @@ ydy.com
 yslang.com
 browserleaks.com
 outlook.com
+live.com
+xbox.com
+mojang.com
+minecraftservices.com
