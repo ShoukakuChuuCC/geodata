@@ -145,6 +145,7 @@ jobs:
           cat ./community/data/steam
 
       - name: change 'geosite:private'
+        run: |
           sed '/cp.cloudflare.com/d' ./community/data/private
 
       - name: Add data for `meta`
