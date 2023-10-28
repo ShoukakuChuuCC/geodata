@@ -1,5 +1,6 @@
 ipw.cn
 gamepass.com
+xboxlive.cn
 xboxservices.com
 steamcontent.com
 steampipe.akamaized.net
