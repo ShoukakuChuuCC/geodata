@@ -50,10 +50,10 @@
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn_domain.txt)
   - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn_domain.txt)
 
-- **bt-tracker.txt**
-  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/bt-tracker.txt)
-  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/bt-tracker.txt)
-  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/bt-tracker.txt)
+- **tracker.txt**
+  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/tracker.txt)
+  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/tracker.txt)
+  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/tracker.txt)
 
 ## **geoip-lite.dat,geoip-lite.db,geoip-lite.metadb 内容** 
 
