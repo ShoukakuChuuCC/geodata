@@ -152,8 +152,10 @@ jobs:
           curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.list | ${{ env.SED }} > ./community/data/onedrive
           echo "sharepoint.cn" >> ./community/data/onedrive 
           curl -sSL https://raw.githubusercontent.com/xishang0128/rules/main/sharepoint.list > ./community/data/sharepoint
-          curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.list | ${{ env.SED }} > ./community/data/tracker
-          curl -sSL https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt | grep -i "\.[A-Z]" | grep -v tracker | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' >> ./community/data/tracker
+          curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.list | ${{ env.SED }} > .temp-tracker
+          curl -sSL ${TrackersList1} | grep -i "\.[A-Z]" | grep -v tracker | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' >> .temp-tracker
+          curl -sSL ${TrackersList2} | grep -i "\.[A-Z]" | grep -v tracker | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' >> .temp-tracker
+          sort --ignore-case -u .temp-tracker > ./community/data/tracker
           curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.list | ${{ env.SED }} > ./community/data/httpdns
 
       - name: Build geosite.dat file
@@ -161,9 +163,6 @@ jobs:
           cd custom || exit 1
           mkdir -p ../community/data
           curl -sSL ${Anti_AD} | grep -v '#' | sed '/^\s*$/d' >> ../community/data/anti-ad
-          curl -sSL ${TrackersList1} | grep -i '\.[A-Z]' | sed "s/^.*\/\///g" | sed "s/:.*\/.*//g" | sed "/^\s*$/d" > ./bt.txt
-          curl -sSL ${TrackersList2} | grep -i '\.[A-Z]' | sed "s/^.*\/\///g" | sed "s/:.*\/.*//g" | sed "/^\s*$/d" >> ./bt.txt
-          sort --ignore-case -u ./bt.txt > ../community/data/bt-tracker
           echo ipleak.net >> ../community/data/geolocation-\!cn
           echo browserleaks.org >> ../community/data/geolocation-\!cn
           echo browserleaks.com >> ../community/data/geolocation-\!cn
@@ -196,9 +195,7 @@ jobs:
           install -Dp ./geoip-lite.db ./publish/
           install -Dp ./geoip.metadb ./publish/
           install -Dp ./geoip-lite.metadb ./publish/
-          curl -sSL ${TrackersList1} | grep -i '\.[A-Z]' | sed "s/^.*\/\///g" | sed "s/:.*\/.*//g" | sed "/^\s*$/d" > ./bt.txt
-          curl -sSL ${TrackersList2} | grep -i '\.[A-Z]' | sed "s/^.*\/\///g" | sed "s/:.*\/.*//g" | sed "/^\s*$/d" >> ./bt.txt
-          sort --ignore-case -u ./bt.txt > ./publish/bt-tracker.txt
+          cp  ./community/data/tracker > ./publish/tracker.txt
           curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list | grep -v "#" | sed 's/DOMAIN-SUFFIX,/full:/g' | sed 's/DOMAIN,//g' > ./publish/steam-cn.txt
           curl -sSL https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/private | grep -v "#" | grep -v "^$" > ./publish/private.txt
           curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_IP.txt | grep -v "#" > ./publish/cn_ip.txt
