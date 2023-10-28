@@ -4,7 +4,6 @@
 airasia.com
 baid.us
 baidu.jp
-browserleaks.com
 bussou.com
 busytrade.com
 cnbeta.com
@@ -32,3 +31,5 @@ xjp.cc
 yanghengjun.com
 ydy.com
 yslang.com
+browserleaks.com
+outlook.com
