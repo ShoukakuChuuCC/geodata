@@ -1,9 +1,13 @@
 ipw.cn
 gamepass.com
-xboxlive.cn
 xboxservices.com
 steamcontent.com
+steamserver.net
+steamstatic.com
+api.steampowered.com
+test.steampowered.com
 steampipe.akamaized.net
+rmbgame.net
 regexp:.*cdn.ea.com$
-regexp:origin.*\.akamaihd.net$
-regexp:^epicgames-download.*\.akamaized.net$
+regexp:origin.*\\.akamaihd.net$
+regexp:^epicgames-download.*\\.akamaized.net$
