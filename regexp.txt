@@ -1,7 +1,0 @@
-regexp:^ntp.*com$
-regexp:^time.*com$
-regexp:^ntp.*cn$
-regexp:^time.*cn$
-regexp:^ntp.*gov$
-regexp:^time.*gov$
-regexp:^.*pool.ntp.org$
