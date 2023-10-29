@@ -165,9 +165,9 @@ jobs:
           cd custom || exit 1
           mkdir -p ../community/data
           curl -sSL ${Anti_AD} | grep -v '#' | sed '/^\s*$/d' >> ../community/data/anti-ad
-          echo ipleak.net >> ../community/data/geolocation-\!cn
-          echo browserleaks.org >> ../community/data/geolocation-\!cn
-          echo browserleaks.com >> ../community/data/geolocation-\!cn
+          echo "ipleak.net" >> ../community/data/geolocation-\!cn
+          echo "browserleaks.org" >> ../community/data/geolocation-\!cn
+          echo "browserleaks.com" >> ../community/data/geolocation-\!cn
           go run ./ --datapath=../community/data
 
       - name: Get geoip.dat relative files
