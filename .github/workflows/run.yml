@@ -60,8 +60,8 @@ jobs:
           
       - name: Get geoip.dat relative files
         run: |
-          wget https://github.com/Loyalsoldier/geoip/raw/release/geoip.dat
-          wget https://github.com/Loyalsoldier/geoip/raw/release/geoip.dat.sha256sum
+          wget https://github.com/ShoukakuChuuCC/geoip/raw/release/geoip.dat
+          wget https://github.com/ShoukakuChuuCC/geoip/raw/release/geoip.dat.sha256sum
 
       - name: Generate GFWList domains
         run: |
@@ -171,7 +171,7 @@ jobs:
       - name: Get geoip.dat relative files
         run: |
           wget -O geoip-lite.dat https://github.com/xishang0128/geoip/raw/release/geoip.dat
-          wget https://github.com/Loyalsoldier/geoip/raw/release/geoip.dat
+          wget https://github.com/ShoukakuChuuCC/geoip/raw/release/geoip.dat
 
       - name: Build db and metadb file
         env:
