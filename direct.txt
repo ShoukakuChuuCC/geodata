@@ -4,8 +4,6 @@ xboxlive.com
 xboxservices.com
 gamepass.com
 client.wns.windows.com
-steamcontent.com
-steampipe.akamaized.net
 ssl-lvlt.cdn.ea.com
 origin-a.akamaihd.net
 epicgames-download1.akamaized.net
