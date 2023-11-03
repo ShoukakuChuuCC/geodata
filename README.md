@@ -60,7 +60,7 @@
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/tracker.txt)
   - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/tracker.txt)
 
-## **geoip-lite.dat,geoip-lite.db,geoip-lite.metadb 内容** 
+## **geoip-lite.dat,geoip-lite.db,geoip-lite.metadb** 
 
 国家仅包含CN/JP,精简体积,替换一些类别
 - 新增类别（方便有特殊需求的用户使用）：
@@ -74,7 +74,7 @@
   - `geoip:twitter`
   - `geoip:apple`
 
-## **geoip.dat,geoip.db,geoip.metadb 内容**
+## **geoip.dat,geoip.db,geoip.metadb**
 
 同 [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
 - 新增类别（方便有特殊需求的用户使用）：
@@ -88,7 +88,7 @@
   - `geoip:twitter`
   - `geoip:steam`
 
-## **geosite.dat,geosite.db,geosite.metadb 内容**
+## **geosite.dat,geosite.db,geosite.metadb**
 
 用法同 [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)  
   - `geosite:category-ads-all` 仅使用域名作为广告拦截用途作用有限，因此不作额外域名添加
@@ -103,22 +103,22 @@
     [ngosang/trackerslist](https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt)
   - `geosite:anti-ad` 来源 [anti-AD](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt)
 
-## *cn_ip.txt 内容*
+## *cn_ip.txt*
 
 内容来自:  
 [blackmatrix7/ios_rule_script](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_IP.txt)
 
-## *cn_domain.txt 内容*
+## *cn_domain.txt*
 
 内容来自:  
 [felixonmars/dnsmasq-china-list](https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf)
 
-## *private.txt 内容*
+## *private.txt*
 
 内容来自:  
 [v2fly/domain-list-community](https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/private)
 
-## *tracker.txt 内容*
+## *tracker.txt*
 
 内容来自:  
 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/PrivateTracker)  
