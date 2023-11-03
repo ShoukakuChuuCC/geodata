@@ -50,6 +50,11 @@
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn_domain.txt)
   - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/cn_domain.txt)
 
+- **private.txt**
+  - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/private.txt)
+  - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/private.txt)
+  - [JSdelivr-CF](https://testingcf.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/private.txt)
+
 - **tracker.txt**
   - [Github release](https://github.com/ShoukakuChuuCC/geodata/releases/download/latest/tracker.txt)
   - [JSdelivr](https://cdn.jsdelivr.net/gh/ShoukakuChuuCC/geodata@release/tracker.txt)
@@ -99,20 +104,21 @@
 
 ## *cn_ip.txt 内容*
 
-主要用于mosdns v5分流
 内容来自:  
 [blackmatrix7/ios_rule_script](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_IP.txt)
 
 ## *cn_domain.txt 内容*
 
-主要用于mosdns v5分流
 内容来自:  
-[blackmatrix7/ios_rule_script](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml)
+[felixonmars/dnsmasq-china-list](https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf)
 
+## *private.txt 内容*
+
+内容来自:  
+[v2fly/domain-list-community](https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/private)
 
 ## *tracker.txt 内容*
 
-主要用于mosdns v5分流
 内容来自:  
 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/PrivateTracker)  
 [XIU2/TrackersListCollectiont](https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt)  
