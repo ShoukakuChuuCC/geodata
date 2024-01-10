@@ -1,9 +1,12 @@
 ipw.cn
-xboxlive.cn
-xboxlive.com
-xboxservices.com
-gamepass.com
-client.wns.windows.com
+assets1.xboxlive.com
+assets2.xboxlive.com
+dlassets.xboxlive.com
+dlassets2.xboxlive.com
+d1.xboxlive.com
+d2.xboxlive.com
+xvcf1.xboxlive.com
+xvcf2.xboxlive.com
 ssl-lvlt.cdn.ea.com
 origin-a.akamaihd.net
 epicgames-download1.akamaized.net
