@@ -29,33 +29,33 @@ jobs:
         shell: bash
 
       - name: Checkout the "hidden" branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ShoukakuChuuCC/geodata
           ref: hidden
 
       - name: Checkout Loyalsoldier/domain-list-custom
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: Loyalsoldier/domain-list-custom
           path: custom
 
       - name: Checkout v2fly/domain-list-community
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: v2fly/domain-list-community
           path: community
 
       - name: Checkout cokebar/gfwlist2dnsmasq
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: cokebar/gfwlist2dnsmasq
           path: gfwlist2dnsmasq
 
       - name: Setup Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version-file: ./custom/go.mod
+          go-version: '1.22'
           cache-dependency-path: ./custom/go.sum
           
       - name: Get geoip.dat relative files
