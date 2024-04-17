@@ -1,8 +1,6 @@
-ipw.cn
-client.wns.windows.com
 ssl-lvlt.cdn.ea.com
 origin-a.akamaihd.net
 epicgames-download1.akamaized.net
 xboxlive.com
 xboxservices.com
-xboxab.com
+gamepass.com
