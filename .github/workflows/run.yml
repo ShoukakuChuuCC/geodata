@@ -192,6 +192,20 @@ jobs:
           geo convert ip -i v2ray -o sing -f geoip-lite.db ./geoip-lite.dat
           geo convert ip -i v2ray -o meta -f geoip-lite.metadb ./geoip-lite.dat
 
+      - name: Convert geo to sing-rule-set
+        env:
+          NO_SKIP: true
+        run: |
+          mkdir -p ./sing-rule/geo
+          cp ./geoip.dat ./custom/publish/geosite.dat ./sing-rule/geo/ 
+          cd ./sing-rule/geo
+          mkdir -p geosite && mkdir -p geoip
+          wget https://github.com/xishang0128/convert/releases/download/Prerelease-main/convert-linux-amd64
+          chmod 755 convert-linux-amd64
+          ./convert-linux-amd64 geosite -f ./geosite.dat -o ./geosite -t sing-box
+          ./convert-linux-amd64 geoip -f ./geoip.dat -o ./geoip -t sing-box
+          rm convert-linux-amd64 geoip.dat geosite.dat
+
       - name: Move and zip files
         run: |
           mkdir -p ./publish/
@@ -203,6 +217,8 @@ jobs:
           install -Dp ./geoip-lite.db ./publish/
           install -Dp ./geoip.metadb ./publish/
           install -Dp ./geoip-lite.metadb ./publish/
+          install -Dp ./geoip.srs ./publish/
+          install -Dp ./geosite.srs ./publish/
           curl -sSL https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.list | sed '/^\s*#/d' | sed 's/^PROCESS-NAME,//' | sed 's/DOMAIN,/full:/g' | sed 's/DOMAIN-SUFFIX,//g' | sed 's/DOMAIN-KEYWORD,/keyword:/g' | sed '/^\s*IP-CIDR/d' > .temp-tracker
           curl -sSL ${TrackersList1} | grep -i "\.[A-Z]" | grep -v tracker | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' >> .temp-tracker
           curl -sSL ${TrackersList2} | grep -i "\.[A-Z]" | grep -v tracker | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' >> .temp-tracker
@@ -219,6 +235,8 @@ jobs:
           sha256sum geoip-lite.db > geoip-lite.db.sha256sum
           sha256sum geoip.metadb > geoip.metadb.sha256sum
           sha256sum geoip-lite.metadb > geoip-lite.metadb.sha256sum
+          sha256sum geoip.srs > geoip.srs.sha256sum
+          sha256sum geosite.srs > geosite.srs.sha256sum
 
       - name: Delete current release assets
         uses: andreaswilli/delete-release-assets-action@v3.0.0
