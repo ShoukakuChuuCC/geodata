@@ -175,7 +175,9 @@ jobs:
           echo "ipleak.net" >> ../community/data/geolocation-\!cn
           echo "browserleaks.org" >> ../community/data/geolocation-\!cn
           echo "browserleaks.com" >> ../community/data/geolocation-\!cn
+          echo "amazon.com" >> ../community/data/aws
           echo "aws.dev" >> ../community/data/aws
+          echo "aws.a2z.com" >> ../community/data/aws
           go run ./ --datapath=../community/data
 
       - name: Get geoip.dat relative files
