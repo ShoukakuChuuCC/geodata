@@ -204,7 +204,7 @@ jobs:
           cp ./geoip.dat ./custom/publish/geosite.dat ./sing-rule/geo/ 
           cd ./sing-rule/geo
           mkdir -p geosite && mkdir -p geoip
-          wget https://github.com/xishang0128/convert/releases/download/Prerelease-main/convert-linux-amd64
+          wget https://github.com/ShoukakuChuuCC/convert/releases/download/Prerelease-main/convert-linux-amd64
           chmod 755 convert-linux-amd64
           ./convert-linux-amd64 geosite -f ./geosite.dat -o ./geosite -t sing-box
           ./convert-linux-amd64 geoip -f ./geoip.dat -o ./geoip -t sing-box
