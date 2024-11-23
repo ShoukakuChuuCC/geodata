@@ -32,7 +32,7 @@ jobs:
       - name: Checkout the "hidden" branch
         uses: actions/checkout@v4
         with:
-          repository: ShoukakuChuuCC/geodata
+          repository: CC-3301/geodata
           ref: hidden
 
       - name: Checkout Loyalsoldier/domain-list-custom
@@ -61,8 +61,8 @@ jobs:
           
       - name: Get geoip.dat relative files
         run: |
-          wget https://github.com/ShoukakuChuuCC/geoip/raw/release/geoip.dat
-          wget https://github.com/ShoukakuChuuCC/geoip/raw/release/geoip.dat.sha256sum
+          wget https://github.com/CC-3301/geoip/raw/release/geoip.dat
+          wget https://github.com/CC-3301/geoip/raw/release/geoip.dat.sha256sum
 
       - name: Generate GFWList domains
         run: |
@@ -185,7 +185,7 @@ jobs:
       - name: Get geoip.dat relative files
         run: |
           wget -O geoip-lite.dat https://github.com/xishang0128/geoip/raw/release/geoip.dat
-          wget https://github.com/ShoukakuChuuCC/geoip/raw/release/geoip.dat
+          wget https://github.com/CC-3301/geoip/raw/release/geoip.dat
 
       - name: Build db and metadb file
         env:
@@ -206,7 +206,7 @@ jobs:
           cp ./geoip.dat ./custom/publish/geosite.dat ./sing-rule/geo/ 
           cd ./sing-rule/geo
           mkdir -p geosite && mkdir -p geoip
-          wget https://github.com/ShoukakuChuuCC/convert/releases/download/Prerelease-main/convert-linux-amd64
+          wget https://github.com/CC-3301/convert/releases/download/Prerelease-main/convert-linux-amd64
           chmod 755 convert-linux-amd64
           ./convert-linux-amd64 geosite -f ./geosite.dat -o ./geosite -t sing-box
           ./convert-linux-amd64 geoip -f ./geoip.dat -o ./geoip -t sing-box
