@@ -9,6 +9,7 @@ api.installer.xiaomi.com
 
 # miui系统更新
 update.miui.com
+miuipolska.pl
 
 #OneTrack & Analytics & Ad
 tracking.miui.com
