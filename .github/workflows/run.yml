@@ -16,6 +16,7 @@ jobs:
         run: |
           echo "GOAMD64=v3" >> $GITHUB_ENV
           echo "Anti_AD=https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt" >> $GITHUB_ENV
+          echo "Fuck_Miui=https://raw.githubusercontent.com/CC-3301/geodata/refs/heads/hidden/fuckmiui.txt" >> $GITHUB_ENV
           echo "TrackersList1=https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt" >> $GITHUB_ENV
           echo "TrackersList2=https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt" >> $GITHUB_ENV
           echo "BUILDTIME=$(TZ=Asia/Shanghai date +'%Y-%m-%d %H:%M')" >> $GITHUB_ENV
@@ -172,6 +173,7 @@ jobs:
           cd custom || exit 1
           mkdir -p ../community/data
           curl -sSL ${Anti_AD} | grep -v '#' | sed '/^\s*$/d' >> ../community/data/anti-ad
+          curl -sSL ${Fuck_Miui} | grep -v '#' | sed '/^\s*$/d' >> ../community/data/fuck-miui
           echo "ipleak.net" >> ../community/data/geolocation-\!cn
           echo "browserleaks.org" >> ../community/data/geolocation-\!cn
           echo "browserleaks.com" >> ../community/data/geolocation-\!cn
