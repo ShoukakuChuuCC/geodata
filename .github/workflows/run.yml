@@ -180,6 +180,8 @@ jobs:
           echo "amazon.com" >> ../community/data/aws
           echo "aws.dev" >> ../community/data/aws
           echo "aws.a2z.com" >> ../community/data/aws
+          sed 's/cloudfront.com//g' ../community/data/aws
+          sed 's/cloudfront.net//g' ../community/data/aws
           go run ./ --datapath=../community/data
 
       - name: Get geoip.dat relative files
